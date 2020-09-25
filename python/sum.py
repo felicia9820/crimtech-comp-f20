@@ -1,5 +1,14 @@
 def sum(lst, n):
     # Your code here!
+    lst.sort()
+    for i in range(len(lst)):
+        j=1
+        while (i + j) < len(lst):
+            if (lst[i] + lst[i+j] == n):
+                return True
+            else:
+                j += 1
+                continue
     return False
 
 def test():

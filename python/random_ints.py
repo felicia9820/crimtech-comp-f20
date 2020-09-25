@@ -3,6 +3,13 @@ import random
 def random_ints():
     # Your code here!
     l = []
+    while not (6 in l):
+        n = random.randint(1,10)
+        if n == 6:
+            l.append(n)
+            break
+        else:
+            l.append(n)
     return l
 
 def test():
