@@ -36,11 +36,17 @@ class Snake(object):
 
     def turn(self, dir):
         # TODO: See section 3, "Turning the snake".
+        self.direction = dir
         pass
 
     def collision(self, x, y):
         # TODO: See section 2, "Collisions", and section 4, "Self Collisions"
-        pass
+        if x > WIDTH or x < 0:
+            return True
+        
+        if y > HEIGHT or y < 0:
+            return True
+        
     
     def coyote_time(self):
         # TODO: See section 13, "coyote time".
@@ -48,8 +54,15 @@ class Snake(object):
 
     def move(self):
         # TODO: See section 1, "Move the snake!". You will be revisiting this section a few times.
-        self.body[0] = self.body[0] + DIR[self.direction]
-        pass
+        x, y = DIR[self.direction]
+        for i in range(len(self.body)):
+            x2, y2 = self.body[i]
+            self.body[i] = (x + x2, y + y2)
+            if self.collision(x2, y2):
+                self.kill()
+
+        return 
+
 
     def kill(self):
         # TODO: See section 11, "Try again!"
@@ -98,7 +111,11 @@ class Apple(object):
 
     def place(self, snake):
         # TODO: see section 6, "moving the apple".
-        pass
+        x, y = self.position
+        self.position = (x + 3, y + 3)
+        return
+        
+        
 
     def draw(self, surface):
         pos = (self.position[0] * SIZE, self.position[1] * SIZE)
