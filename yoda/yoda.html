@@ -1,9 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+        <title>Yoda</title>
+        <link rel='shortcut icon' type='image/png' href='img/favicon.ico'>
+        <script src="response_handler.js"></script>
     </head>
     <body>
+        
+        <center>
+            <img src="img/regular-std.jpg" alt="Girl in a jacket" width="900" height="400" id="im">
+            <p>To yoda chat I welcome you. Yes, hmmmmm.</p>
+            <input type="text" id="fname" name="fnam" class="sample" > 
+            <button type="button" class="Btn" onclick="respond()" >Click Me!</button>
+            <script>
+                let sampleEle = document.querySelector(".sample");
+                console.log(sampleEle)
+                // Execute a function when the user releases a key on the keyboard
+                sampleEle.addEventListener("keyup", (event) => {
+                    if (event.keyCode === 13) {
+                        event.preventDefault();
+                        document.querySelector(".Btn").click();
+                    }
+                });
+            </script>
+            <p id="demo1"></p>
+            <p id="demo"></p>
+        </center>
 
     </body>
 </html>
